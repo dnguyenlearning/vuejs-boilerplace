@@ -2,10 +2,12 @@
   "name": "vuejs",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dnguyenlearning.github.io/vuejs-boilerplace/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.6.0",
     "@vue/cli-plugin-eslint": "^3.6.0",
+    "gh-pages": "^2.0.1",
     "@vue/cli-service": "^3.6.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",

@@ -1,3 +1,5 @@
 module.exports = {
-    publicPath: '/vuejs-boilerplace/'
+    publicPath: process.env.NODE_ENV === 'production'
+      ? '/vuejs-boilerplace/'
+      : '/'
   }

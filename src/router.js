@@ -26,6 +26,9 @@ const router = new VueRouter({
             meta: {
                 requiredAuth: true
             }
+        },
+        {
+            path:'*', redirect: '/dashboard'
         }
     ],
     mode: "history"
