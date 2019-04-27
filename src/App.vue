@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <v-app>
+        <side-bar :isShow="isAuthenticated" v-show="isAuthenticated"></side-bar>
+        <v-content>
+            <router-view></router-view>
+        </v-content>
+    </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+    import SideBar from "@/components/sidebar"
+    import {createNamespacedHelpers} from "vuex"
+    const {mapGetters} = createNamespacedHelpers("users")
+    export default {
+        name: 'App',
+        components: {
+            SideBar
+        },
+        computed: {
+            ...mapGetters(["isAuthenticated"])
+        },
+        data() {
+            return {
+                //
+            }
+        }
+    }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

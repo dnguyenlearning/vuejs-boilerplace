@@ -1,4 +1,4 @@
-# qingwa
+# Vuejs boiler
 
 ## Project setup
 ```
