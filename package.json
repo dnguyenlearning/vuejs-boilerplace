@@ -2,7 +2,7 @@
   "name": "vuejs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dnguyenlearning.github.io/vuejs-boilerplace/",
+  "homepage": "https://dnguyenlearning.github.io/vuejs-boilerplace",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
