@@ -11,10 +11,6 @@ const mutations = {
         state.loading = true
         state.error = {}
     },
-    [types.GET_TODOS](state){
-        state.loading = true
-        state.error = {}
-    },
     [types.GET_TODOS_SUCCESS](state, {todos}){
         state.loading = false
         state.todos = todos

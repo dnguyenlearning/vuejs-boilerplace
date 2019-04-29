@@ -5,3 +5,7 @@ export const doneTodos = state => {
 export const adding = state => {
     return state.adding
 }
+
+export const loading = state => {
+    return state.loading
+}

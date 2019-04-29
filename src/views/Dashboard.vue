@@ -4,10 +4,14 @@
       <v-flex class="mb-5">
         <v-layout row justify-space-between align-center>
           <h3 class="display-2">Todos App</h3>
-          <v-btn @click="addTodo" color="primary" :loading="adding">Add Todo</v-btn>
+          <div>
+            <v-btn @click="addTodo" color="primary" :loading="adding">Add Todo</v-btn>
+            <v-btn @click="testNotification" color="error">Test Notification</v-btn>
+          </div>
         </v-layout>
       </v-flex>
-      <v-flex>
+      <v-flex v-if="loading">Loading...</v-flex>
+      <v-flex v-if="!loading">
         <template v-for="(todo, index) in doneTodos">
           <v-divider v-show="index !== 0" :key="todo.id" :inset="true"></v-divider>
           <v-list-tile :key="todo.title" avatar @click="itemClick" class="ma-2">
@@ -29,8 +33,7 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
-const { mapGetters } = createNamespacedHelpers("todos");
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -40,7 +43,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["doneTodos", "adding"])
+    ...mapGetters('todos',["doneTodos", "adding", "loading"])
   },
   created() {
     this.$store.dispatch("todos/getTodosAsync");
@@ -55,6 +58,11 @@ export default {
           completed: true
         }
       });
+    },
+    testNotification(){
+      this.$store.dispatch("message/messageError", {
+        message: "Something went wrong!"
+      })
     }
   }
 };

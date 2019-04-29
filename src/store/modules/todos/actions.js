@@ -1,4 +1,6 @@
 import * as types from "./types";
+import * as messageTypes from "../message/types";
+
 import {getTodos, addTodo} from "@/api/todo"
 
 export const getTodosAsync = async ({commit}) => {
@@ -9,6 +11,7 @@ export const getTodosAsync = async ({commit}) => {
         ])
         commit(types.GET_TODOS_SUCCESS, {todos})
     }catch(error){
+        commit(`message/${messageTypes.MESSAGE_ERROR}`, {message: "Failed to load todos!"}, {root: true})
         commit(types.GET_TODOS_FAILED, {error})
     }
 }
